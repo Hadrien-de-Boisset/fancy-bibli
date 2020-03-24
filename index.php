@@ -1,4 +1,11 @@
 <?php
+    function getURL($dirPath){
+        
+        $currentFile = getcwd();
+        return str_replace($currentFile."/", "", $dirPath);
+        
+    }
+    
     function tableauContenu($dos, $depth){
    
     
@@ -30,7 +37,7 @@
             }
             else{
                 
-                $resultat .= "<li data-depth='$depth'><a href='".$dos."/".$nom."' download>".$nom."</a></li>\n";
+                $resultat .= "<li data-depth='$depth'><a href='".getURL($dos."/".$nom)."' download>".$nom."</a></li>\n";
                 
             }
             
