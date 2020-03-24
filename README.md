@@ -2,9 +2,13 @@
 
 Fancy bibli is a very simple application designed to navigate through a static library of files on a server.
 
+## How do I pronounce that name
+
+It's pronounced bee-blee
+
 ## Installation
 
-Drop index.php and bibli-utils in the top-most folder of your library
+Drop index.php and bibli-utils in the top-most folder of your library's hierarchy
 
 ## What's the point of this thing ?
 
