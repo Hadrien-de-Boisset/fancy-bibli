@@ -19,7 +19,7 @@ $(function() {
 
         trigeredSlide.slideToggle();
         trigeredSlide.addClass("visible");
-        trigeredSlide.on("click", blockProgression)
+        $(".visible").on("click", blockProgression)
     })
 
     function blockProgression(event) {
