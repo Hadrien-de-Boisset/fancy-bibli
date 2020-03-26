@@ -6,6 +6,53 @@
         
     }
     
+    function getIcon($fileName){
+        //get file extension
+        $path_parts = pathinfo($fileName);
+        
+            if( array_key_exists('extension', $path_parts)){
+                $ext = $path_parts['extension'];
+                $ext = strtolower($ext);
+            } else {
+                $ext = "";
+            }
+            
+        //set an arrays per type of file
+        
+        $video = ["avi", "mov", "mp4", "webm", "mkv", "ogg", "ogv", "wmv"];
+        
+        $audio = ["mp3", "wav", "flac"];
+        
+        $picture = ["jpg", "jpeg", "png", "svg", "gif"];
+        
+        $document = ["doc", "docx", "odt", "pdf", "rtf", "txt"];
+        
+        $ebook = ["epub"];
+        
+        if(in_array($ext, $video)){
+            return "<i class='far fa-file-video'></i> ";
+        }
+        
+        if(in_array($ext, $audio)){
+            return "<i class='far fa-file-audio'></i> ";
+        }
+        
+        if(in_array($ext, $picture)){
+            return "<i class='far fa-image'></i> ";
+        }
+        
+        if(in_array($ext, $document)){
+            return "<i class='far fa-file'></i> ";
+        }
+        
+        if(in_array($ext, $ebook)){
+            return "<i class='fas fa-book'></i> ";
+        }
+        
+            
+        return "<i class='far fa-question-circle'></i> ";
+    }
+    
     function tableauContenu($dos, $depth){
    
     
@@ -27,17 +74,17 @@
             
             if(is_dir($dos."/".$nom) && !empty(array_diff(scandir($dos."/".$nom), array('..', '.')))){
                 
-                $resultat .= "<li data-depth='$depth' class='unroll'><span class='dossier'>".$nom."</span>".tableauContenu($dos."/".$nom, $depth+1)."</li>\n";
+                $resultat .= "<li data-depth='$depth' class='unroll'><span class='dossier'><i class='fas fa-folder'></i> ".$nom."</span>".tableauContenu($dos."/".$nom, $depth+1)."</li>\n";
                 
             }
             else if(is_dir($dos."/".$nom)){
                 
-                $resultat .= "<li data-depth='$depth'><span class='dossier dossier-vide'>".$nom."</span></li>\n";
+                $resultat .= "<li data-depth='$depth'><span class='dossier dossier-vide'><i class='far fa-folder'></i> ".$nom."</span></li>\n";
                 
             }
             else{
                 
-                $resultat .= "<li data-depth='$depth'><a href='".getURL($dos."/".$nom)."' download>".$nom."</a></li>\n";
+                $resultat .= "<li data-depth='$depth'><a href='".getURL($dos."/".$nom)."' download>".getIcon($nom).$nom."</a></li>\n";
                 
             }
             
