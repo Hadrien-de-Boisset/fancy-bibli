@@ -1,0 +1,36 @@
+html {
+    background-color: white;
+    line-height: 2rem;
+}
+
+body {
+    margin: 0 0.5rem;
+}
+
+ol,
+li {
+    padding-left: 0 !important;
+    box-sizing: border-box;
+    margin-left: 2px;
+    margin-right: 1px;
+    width: auto;
+}
+
+.unroll span {
+    margin: 5px;
+}
+
+
+.in-file {}
+
+.dark {
+    background-color: #EEE;
+}
+
+.light {
+    background-color: white;
+}
+
+.parent-background {
+    background-color: inherit;
+}
